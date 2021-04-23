@@ -1,4 +1,4 @@
-const { displayWordSoFar, isGameWon, isGameLost } = require("./gamelogic");
+const { displayWordSoFar, isGameWon, isGameLost,isItASingleLetter } = require("./gamelogic");
 
 test("displayWordSoFar should display an underscore followed by a space for each letter to guess", () => {
   // ARRANGE
@@ -70,4 +70,26 @@ test("isGameLost should return false if you've guessed less than 7 wrong letters
 
   // ASSERT
   expect(gameLost).toBe(false);
+});
+
+test("isItASingleLetter should return false if input is more than one letter", () => {
+  // ARRANGE
+  const letter = "ae"
+
+  // ACT
+  const singleLetter = isItASingleLetter(input);
+
+  // ASSERT
+  expect(singleLetter).toBe(false);
+});
+
+test("isItASingleLetter should return true if input is exctly one letter", () => {
+  // ARRANGE
+  const letter = "a"
+
+  // ACT
+  const singleLetter = isItASingleLetter(input);
+
+  // ASSERT
+  expect(singleLetter).toBe(true);
 });
