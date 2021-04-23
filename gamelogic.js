@@ -21,6 +21,7 @@ function displayWordSoFar(word, guesses) {
   }
     return displayedWord;
   }
+
   function isGameWon(word, guesses) {
     // WRITE ME
     for (let i = 0; i < word.length; i++) {
@@ -63,8 +64,17 @@ function displayWordSoFar(word, guesses) {
 
   }
 
+  function isItASingleLetter(letter) {
+    if (letter.length > 1 || letter.length < 1) {
+      return false;
+    } else  {
+      return true;
+    }
+  }
+
   module.exports = {
     displayWordSoFar: displayWordSoFar,
     isGameWon: isGameWon,
     isGameLost: isGameLost,
+    isItASingleLetter: isItASingleLetter,
   }
